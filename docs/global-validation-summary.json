@@ -1,0 +1,68 @@
+{
+  "version": "0.4.2",
+  "date": "2026-10-16",
+  "model": "gpt-6.1-sol",
+  "environment": {
+    "platform": "macOS arm64",
+    "codex_version": "0.162.0-alpha.17.2"
+  },
+  "historical_v041_with_local_global_guidance": {
+    "cli_invocations_independently_audited": 20,
+    "cli_threads": 14,
+    "installation_and_loading_checks_passed": 21,
+    "desktop_new_chat": {
+      "status": "pass",
+      "local_guidance_revision": "v1",
+      "seconds": 11.793
+    },
+    "existing_thread_resume": {
+      "status": "pass",
+      "method": "new CLI process; not original process hot reload"
+    },
+    "initial_main_cases": {
+      "passed": 7,
+      "failed": 1,
+      "replies": 10,
+      "required_assertions_present": 26
+    },
+    "repair01_affected_case": "fail",
+    "repair02_affected_case": "pass",
+    "inherited_unaffected_cases": 7,
+    "inherited_extra_checks": 3,
+    "all_cases_regenerated_under_final_guidance": false
+  },
+  "v042_prepublication": {
+    "official_skill_structure_check": "pass",
+    "relative_links_and_safe_public_file_set": "pass",
+    "skill_zip": {
+      "files": 7,
+      "bytes": 11762,
+      "sha256": "ca1f2db40c35513eb40d48bdfc837bf52976acd725a8f7733d420cf6eeea0f97"
+    },
+    "focused_runtime": {
+      "status": "pass_ai_review",
+      "new_conversations": 1,
+      "turns": 3,
+      "required_assertions_passed": 4,
+      "same_original_prompts": true,
+      "prompts_name_skill": false,
+      "actual_first_turn_full_skill_body_read": true,
+      "later_turns_reread_skill": false,
+      "turn_elapsed_seconds": [
+        28.319,
+        16.057,
+        20.116
+      ],
+      "full_case_or_browser_suite_rerun": false
+    }
+  },
+  "limits": {
+    "human_understanding": "not_run",
+    "no_skill_controlled_comparison": "not_run",
+    "v042_desktop_new_chat_rerun": "not_run",
+    "already_open_desktop_chat_hot_reload": "not_run",
+    "windows": "not_run",
+    "all_future_outputs_guaranteed": false
+  },
+  "privacy": "No private corpus, local absolute paths, credentials or raw session logs published."
+}
