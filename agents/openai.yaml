@@ -1,4 +1,4 @@
 interface:
   display_name: "清楚表达"
-  short_description: "让Chat、报告和文档更易懂，保留原意，按需改写或生成解释型HTML"
-  default_prompt: "使用 $reader-first-output，按当前任务清楚表达，保留事实、条件与范围；只在需要时改写或生成交互式HTML。"
+  short_description: "设置清楚表达默认规则；按需完整改写、审阅或生成解释型HTML"
+  default_prompt: "使用 $reader-first-output，按当前任务设置清楚表达默认规则、完整改写或制作交互式HTML，保留事实、条件与范围。"

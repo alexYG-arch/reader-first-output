@@ -1,6 +1,6 @@
 # reader-first-output · 清楚表达
 
-让 AI 从一开始就把 Chat、进度说明、报告和文档写清楚，保留原意，避免无必要的自造词。当前版本：**0.4.2**。
+让 AI 从一开始就把 Chat、进度说明、报告和文档写清楚，保留原意，避免无必要的自造词。当前版本：**0.4.3**。
 
 日常使用直接完成原任务，不需要先提供难懂的文章；通俗改写与交互式 HTML 是按需使用的两种方式。
 
@@ -29,18 +29,18 @@
 可把下面这段话一次性发给 Codex：
 
 ```text
-请使用 skill-installer 从 https://github.com/alexYG-arch/reader-first-output/tree/v0.4.2
+请使用 skill-installer 从 https://github.com/alexYG-arch/reader-first-output/tree/v0.4.3
 安装 reader-first-output 到 ~/.agents/skills/reader-first-output；如已有安装，先备份再更新。
 再将 references/codex-global-instructions.md 合并到 Codex 用户级 AGENTS.md
 （默认 ~/.codex/AGENTS.md；自定义 CODEX_HOME 时使用对应目录）。
 保留已有内容，已有相同标记块时更新该块，不重复追加。
 若存在 AGENTS.override.md，先检查实际生效文件，不覆盖或新建 override。
-设置完成后，用不提 Skill 名的自然问题验证新聊天确实读取了 Skill 正文。
+设置完成后，用不提 Skill 名的自然问题验证新聊天实际收到默认规则，并直接回答。
 ```
 
-默认规则让每个新聊天首次回复前读取 Skill，同一聊天已有规则时不反复读取。只有改写、HTML、正式评测才读取相应参考文件。项目中的具体要求、当前任务的精确格式和权限边界继续适用。
+日常表达规则直接随用户级 AGENTS 注入新会话，普通 Chat 不必为此读取或启动 Skill，也不额外说明“已加载”或“将采用某规则”。完整改写、HTML、正式可读性审阅等专门任务仍可隐式选用 Skill，并遵循宿主的必要告知要求。项目中的具体要求、当前任务的精确格式和权限边界继续适用。
 
-也可在 [Releases](https://github.com/alexYG-arch/reader-first-output/releases/latest) 下载 `reader-first-output-v0.4.2.zip`，将完整目录放入 `~/.agents/skills/`，再按上述方式合并 [全局指令短稿](references/codex-global-instructions.md)。**ZIP 解压本身不会修改全局设置。**
+也可在 [Releases](https://github.com/alexYG-arch/reader-first-output/releases/latest) 下载 `reader-first-output-v0.4.3.zip`，将完整目录放入 `~/.agents/skills/`，再按上述方式合并 [全局指令短稿](references/codex-global-instructions.md)。**ZIP 解压本身不会修改全局设置。**
 
 新建聊天验证即可；如果 Skill 没出现或指令仍旧，重启 Codex 后再检查。已打开的旧聊天是否即时更新不作保证。完整的手动步骤、更新、停用及排查方法见 [Codex 安装与默认生效](docs/INSTALL-CODEX.md)。目录与加载规则依据 [OpenAI 官方 Skill 说明](https://learn.chatgpt.com/docs/build-skills)和 [AGENTS 说明](https://learn.chatgpt.com/docs/agent-configuration/agents-md)。
 
@@ -83,12 +83,16 @@ $reader-first-output 将这份记录做成可连续阅读、可查找、可核�
 - [测试摘要](docs/VALIDATION.md)：已完成范围、修复记录与证据限制。
 - [全局默认使用验证](docs/GLOBAL-VALIDATION.md)：安装与实际读取证据、两次失败及修复范围。
 
-Skill 是独立文本指令，不含业务执行器、模型、媒体或运行时依赖；v0.4.2 Skill ZIP 有 7 个文本文件，比 v0.4.1 多一份全局指令短稿。克隆仓库还会得到 README、安装说明和测试摘要，不要把仓库文件数与 Skill ZIP 文件数混为一谈。
+Skill 是独立文本指令，不含业务执行器、模型、媒体或运行时依赖；v0.4.3 Skill ZIP 仍有 7 个文本文件，包含全局指令短稿。克隆仓库还会得到 README、安装说明和测试摘要，不要把仓库文件数与 Skill ZIP 文件数混为一谈。
+
+## 从 v0.4.2 更新
+
+v0.4.2 的全局规则要求每个新聊天先调用 Skill，可能触发宿主的首次使用说明。升级时，除更新 Skill 文件外，还要用新版短稿替换原有 reader-first-output 标记块，保留块外个人规则；只更新 Skill 文件不够。新版以 AGENTS 直接约束普通输出，保留自动表达效果，**不再把普通 Chat 读取 Skill 正文作为通过条件**。详见 [修复与复测](docs/QUIET-DEFAULTS.md)。
 
 ## 测试范围
 
 2026-10-15 使用 gpt-6.1-sol 显式加载测试：13组真实材料分别用于 Chat、完整改写及 HTML，最终各13/13通过AI审阅；后两种分别核对同一组120项原始信息。13个HTML完成了所列浏览器交互检查。另有11个构造情境及16段错误表达检查。[详细口径与限制](docs/VALIDATION.md)。
 
-2026-10-16 另行验证了用户级发现、默认规则注入、Skill 正文实际读取、新 Desktop 聊天及 CLI 续接；发现条件推断问题后做定点修复。历史结果与本次发布检查分别记录，见 [全局验证摘要](docs/GLOBAL-VALIDATION.md)。
+此前另行验证了用户级发现、默认规则注入、Skill 正文实际读取、新 Desktop 聊天及 CLI 续接；这些是旧版机制的历史证据，见 [全局验证摘要](docs/GLOBAL-VALIDATION.md)。v0.4.3 针对首次使用说明的修复及新版默认规则验证另见 [修复与复测](docs/QUIET-DEFAULTS.md)。
 
-没有真人理解测量或无 Skill 对照试验，也未验证所有宿主、所有模型或完全离线打开。自动读取不保证以后每条回答都正确，重要交付仍应对照来源检查。
+没有真人理解测量或无 Skill 对照试验，也未验证所有宿主、所有模型或完全离线打开。默认表达规则不保证以后每条回答都正确，重要交付仍应对照来源检查。

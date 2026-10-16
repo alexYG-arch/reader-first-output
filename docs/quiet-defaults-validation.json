@@ -1,0 +1,97 @@
+{
+  "version": "0.4.3",
+  "date": "2026-10-16",
+  "model": "gpt-6.1-sol",
+  "environment": "macOS arm64, real isolated Codex CLI processes; fresh simulated user homes, not new operating-system accounts",
+  "default_mechanism": "AGENTS rules directly injected for ordinary Chat; Skill remains implicitly available for specialized tasks; required host Skill announcements remain in effect",
+  "test_inputs": {
+    "original_five_cases_seven_turns_unchanged": true,
+    "two_additional_queue_first_turns_match_original": true,
+    "specialized_full_rewrite_turns": 1,
+    "generation_received_evaluation_or_expected_answers": false,
+    "explicit_skill_name_in_user_prompts": false
+  },
+  "initial_candidate": {
+    "fresh_conversations": 8,
+    "turns": 10,
+    "ordinary_turns": 9,
+    "ordinary_quiet_output_pass": 9,
+    "semantic_pass": 9,
+    "semantic_total": 10,
+    "specialized_rewrite_pass": 1,
+    "overall": "FAIL",
+    "failure": "One queue-state answer added an unsupported claim that the result file was definitely not yet generated. Initial raw answer and FAIL review retained; no prompt or assertion was weakened."
+  },
+  "repair": {
+    "change": "General unconfirmed-versus-negative-fact protection added to Skill, global instructions and project instructions.",
+    "fresh_conversations": 3,
+    "turns": 4,
+    "semantic_pass": 4,
+    "quiet_output_pass": 4,
+    "overall": "PASS",
+    "input_and_assertions_unchanged": true
+  },
+  "selected_closing_evidence": {
+    "inherited_unaffected_initial_turns": 6,
+    "fresh_targeted_repair_turns": 4,
+    "semantic_pass": 10,
+    "turns": 10,
+    "ordinary_quiet_pass": 9,
+    "ordinary_total": 9,
+    "specialized_rewrite_pass": 1,
+    "specialized_total": 1,
+    "all_ten_rerun_under_final_rules": false,
+    "total_executed_conversations_across_phases": 11,
+    "total_executed_turns_across_phases": 14
+  },
+  "review": {
+    "all_user_visible_agent_messages_reviewed": true,
+    "includes_commentary_and_final": true,
+    "ordinary_no_extra_skill_reads_or_announcements": true,
+    "specialized_skill_and_rewriting_reference_actually_read": true,
+    "required_specialized_use_announcement_permitted": true,
+    "independent_ai_semantic_review": "PASS after targeted repair; initial FAIL retained",
+    "human_comprehension_test": false
+  },
+  "configuration_scenarios": [
+    "Existing default profile, replacing old v0.4.2 marked block",
+    "Custom CODEX_HOME, leaving default profile file untouched",
+    "Existing nonempty global override, retaining normal AGENTS and project instruction files"
+  ],
+  "configuration_preservation": {
+    "existing_content_and_permissions_preserved": true,
+    "config_toml_and_unrelated_files_byte_identical": true,
+    "single_updated_marked_block": true,
+    "repeat_merge_idempotent": true,
+    "old_block_replacement_strict_outside_bytes_identical": true,
+    "initial_unmarked_append_separator_lf": 1,
+    "append_note": "Each of two unmarked append scenarios adds one newline outside the strict marker boundary; original content remains unchanged. The first derived receipt used a broader boundary and was corrected with its original retained.",
+    "repair_marker_replacement_strict_outside_bytes_identical_all_three": true,
+    "authentication_copies_removed_after_each_phase": true
+  },
+  "timing_utc": {
+    "initial_start": "2026-10-16T04:16:05.232851+00:00",
+    "initial_end": "2026-10-16T04:17:26.080199+00:00",
+    "initial_wall_seconds": 80.847,
+    "repair_start": "2026-10-16T04:22:44.523673+00:00",
+    "repair_end": "2026-10-16T04:23:12.755638+00:00",
+    "repair_wall_seconds": 28.232,
+    "wall_time_note": "Parallel model calls overlap; wall times are not summed agent hours or installation time."
+  },
+  "package": {
+    "archive": "reader-first-output-v0.4.3.zip",
+    "files": 7,
+    "bytes": 12311,
+    "sha256": "02c016a51485257f0450e3412512d9bbebc24b497ab2f813add333cb6f338078",
+    "zip_crc": "PASS",
+    "moved_extraction_matches_source": true,
+    "official_skill_structure_validator": "PASS"
+  },
+  "not_retested": [
+    "Full historical Chat/rewrite/HTML suite",
+    "Desktop hot reload of an already-open conversation",
+    "Windows or other hosts/models",
+    "Human understanding or no-Skill comparison"
+  ],
+  "privacy": "Only aggregate results are published. Private session logs, credentials, user configuration, machine paths and project media are not included."
+}
