@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-16",
+  "skill_version": "0.4.3",
+  "native_keyboard_result": "PASS in tested visible Chrome 155.0.8059.41",
+  "source_html_sha256": "a3b4b29390676a296964efb1c5b1acaae16b89e20968d9817b4a76752a300424",
+  "original_html_modified": false,
+  "native_os_input": {
+    "browser_version": "155.0.8059.41",
+    "pages": [
+      "original",
+      "minimal native select fixture"
+    ],
+    "commit_sequence_each": [
+      "done",
+      "pending",
+      "all"
+    ],
+    "visible_counts_each": [
+      2,
+      2,
+      4
+    ],
+    "selection_events_total": 12,
+    "all_selection_events_trusted": true,
+    "escape_cancel": "PASS with native AX observations plus no extra change"
+  },
+  "cdp_input": {
+    "browser_version": "155.0.8059.80",
+    "playwright_version": "1.63.0",
+    "same_response_pages": 2,
+    "tab_focus_correct": true,
+    "space_arrowdown_enter_selection_committed": false,
+    "same_noncommit_on_minimal_fixture": true
+  },
+  "attribution": {
+    "judgement": "Strongly supports automated native-menu input-path limitation; no original-page keyboard defect reproduced in tested native environment",
+    "strict_same_build_causal_isolation": false,
+    "native_os_input_on_155_0_8059_80": "not_run; target instance could not be safely selected",
+    "existing_user_browser_restarted": false
+  },
+  "test_method_repair": {
+    "native_system_input_required_for_native_menu_claim": true,
+    "selectOption_or_scripted_value_not_counted_as_keyboard_pass": true,
+    "raw_failures_retained": true,
+    "isTrusted_alone_not_an_OS_origin_proof": true
+  },
+  "exploratory_matrix": {
+    "completed_records": 18,
+    "not_run_records": 6,
+    "not_counted_as_passing_product_tests": true,
+    "intermediate_hang_snapshot_retained_with_final_correction": true
+  },
+  "separate_first_install_validation": {
+    "inherited_as_separate_same_day_evidence": true,
+    "new_conversations": 20,
+    "turns": 27,
+    "ordinary_pass": 23,
+    "specialized_pass": 4,
+    "existing_config_scenarios_preserved": 3,
+    "model": "gpt-6.1-sol",
+    "platform": "macOS arm64",
+    "not_rerun_in_keyboard_followup": true
+  },
+  "release": {
+    "runtime_change_required": false,
+    "runtime_files": 7,
+    "archive_bytes": 12311,
+    "archive_sha256": "02c016a51485257f0450e3412512d9bbebc24b497ab2f813add333cb6f338078",
+    "existing_tag_and_archive_preserved": true,
+    "updated_items": [
+      "validation documentation",
+      "current release validation supplement"
+    ]
+  },
+  "not_claimed": [
+    "Native OS keyboard pass on .80",
+    "All browser compatibility",
+    "Desktop UI first install",
+    "Human comprehension",
+    "All exploratory cases completed"
+  ],
+  "sources": [
+    "https://github.com/ChromeDevTools/chrome-devtools-mcp/issues/3033",
+    "https://playwright.dev/docs/browsers"
+  ]
+}
