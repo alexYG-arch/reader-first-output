@@ -1,0 +1,74 @@
+{
+  "skill": "reader-first-output",
+  "version": "0.4.1",
+  "test_completed_date": "2026-10-15",
+  "publication_date": "2026-10-16",
+  "model": "gpt-6.1-sol",
+  "origin": "summary of completed local evaluation; raw project corpus and private evidence not published",
+  "source_real_cases": 13,
+  "original_information_items": 120,
+  "modes": {
+    "chat": {
+      "pass": 13,
+      "total": 13
+    },
+    "rewrite": {
+      "pass": 13,
+      "total": 13,
+      "information_items_preserved": 120
+    },
+    "html": {
+      "pass": 13,
+      "total": 13,
+      "information_items_preserved": 120
+    }
+  },
+  "supplemental": {
+    "constructed_scenarios": 11,
+    "daily_or_document_replies": 13,
+    "scenario_pass": 11,
+    "negative_scenarios": 8,
+    "negative_mode_fragments": 16,
+    "negative_detected": 16
+  },
+  "browser": {
+    "pages_pass": 13,
+    "pages_total": 13,
+    "widths_tested": [
+      1280,
+      320
+    ],
+    "transport": "loopback HTTP in Codex IAB",
+    "not_run": [
+      "direct file opening",
+      "fully offline launch",
+      "human comprehension",
+      "full WCAG audit"
+    ]
+  },
+  "method": {
+    "full_generation_rounds": 2,
+    "fresh_context_batches_per_round": 3,
+    "outputs_per_batch": 13,
+    "outputs_across_full_rounds": 78,
+    "final_output_count": 39,
+    "targeted_repairs_after_second_round": true,
+    "not_39_independent_sessions": true,
+    "generator_saw_gold_answers": false,
+    "skill_loading": "explicit file read, not automatic discovery"
+  },
+  "skill_files": {
+    "SKILL.md": "5aef50264940722a1baee5bb36a92c2c4cf9b75b5f92f010459076674b7e2b89",
+    "references/rewriting.md": "24b0b07c01b36f5a961e3448dbf20591ff046d38c7afdab84cdb38d34a8ad3d0",
+    "references/interactive-html.md": "0222ca1bd6c7cb5407d2cede9f29616cefbcbaefe5c0b8f39757cc109cac776b",
+    "references/project-instructions.md": "352c4162a53c9a8f0d019f4f7df365ff3f34236aec6bde25d53031e3780f865e",
+    "references/evaluation.md": "ffa3bae6c448bdbff39b21e88bfcf2e2c30f7c6a051c0df36673f337ff37fba1",
+    "agents/openai.yaml": "56ef7d698bc38f08fcb0e974aefb02784d13a29870bab2addcb96db68b590894"
+  },
+  "package": {
+    "filename": "reader-first-output-v0.4.1.zip",
+    "bytes": 10247,
+    "sha256": "83f6b429168698b1b946d8b7319c33989bc52684b5675d8f7ac276df5c91c328"
+  },
+  "public_reproducibility": "raw corpus and complete evaluation records are not included; this is not a self-contained benchmark"
+}
